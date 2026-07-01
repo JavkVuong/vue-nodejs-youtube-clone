@@ -8,7 +8,7 @@ pipeline {
         CLUSTER_NAME   = 'do2602' // Cần thay bằng tên Cluster thật của bạn
         
         // --- Thông tin Image ---
-        IMAGE_NAME     = 'do2509/cuongvc'
+        IMAGE_NAME     = 'do2602/cuongvc'
         IMAGE_TAG      = "youtube.v1.0.${env.BUILD_NUMBER}"
         ECR_URL        = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
         FULL_IMAGE     = "${ECR_URL}/${IMAGE_NAME}:${IMAGE_TAG}"
