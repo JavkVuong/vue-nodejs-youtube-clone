@@ -3,18 +3,18 @@ pipeline {
     
     environment {
         // --- Thông tin AWS & Docker ---
-        AWS_ACCOUNT_ID = '919664459382' 
+        AWS_ACCOUNT_ID = '527055790396' 
         AWS_REGION     = 'ap-southeast-1' 
-        CLUSTER_NAME   = 'do2509' // Cần thay bằng tên Cluster thật của bạn
+        CLUSTER_NAME   = 'do2602' // Cần thay bằng tên Cluster thật của bạn
         
         // --- Thông tin Image ---
-        IMAGE_NAME     = 'do2509/tvtien'
+        IMAGE_NAME     = 'do2509/cuongvc'
         IMAGE_TAG      = "youtube.v1.0.${env.BUILD_NUMBER}"
         ECR_URL        = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
         FULL_IMAGE     = "${ECR_URL}/${IMAGE_NAME}:${IMAGE_TAG}"
         
         // --- Cấu hình K8s ---
-        NAMESPACE      = "do2509-tvtien"
+        NAMESPACE      = "do2509-cuongvc"
         HELM_PATH      = "./helmchart"
         VALUES_FILE    = "${HELM_PATH}/values-do2509.yaml"
     }
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                     echo "NODE_ENV=production" > .env.production.local
-                    echo "VUE_APP_URL=https://tvtien-cicd-youtube.vti2509.click" >> .env.production.local
+                    echo "VUE_APP_URL=https://cuongvc-cicd-youtube.vti2602.click" >> .env.production.local
                     echo "VUE_APP_TITLE=My App Production" >> .env.production.local
                 '''
             }
